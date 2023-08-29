@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:tic_tac_toe/controllers/controller.dart';
+import 'package:tic_tac_toe/controllers/welcome_controller.dart';
 import 'package:tic_tac_toe/theming/my_theme.dart';
 import 'package:tic_tac_toe/views/welcome_view/welcome_view.dart';
 import 'package:get/get.dart';
@@ -9,7 +9,7 @@ https://github.com/MohammedSolyman/tic_tac_toe.git
 */
 
 void main() {
-  Get.put(Controller());
+  Get.put(WelcomeController());
   runApp(const MyApp());
 }
 

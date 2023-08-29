@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:tic_tac_toe/controllers/controller.dart';
+import 'package:tic_tac_toe/controllers/welcome_controller.dart';
 import 'package:tic_tac_toe/views/welcome_view/components/my_form.dart';
 
 class WelcomeView extends StatelessWidget {
@@ -8,7 +8,7 @@ class WelcomeView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Controller controller = Get.find<Controller>();
+    WelcomeController controller = Get.find<WelcomeController>();
 
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
@@ -19,14 +19,14 @@ class WelcomeView extends StatelessWidget {
             child: Column(
               children: [
                 MyTextFormField(
-                  tec: TextEditingController(),
+                  tec: controller.welcomeViewModel.value.tecPlayer1,
                   label: 'player one name',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 MyTextFormField(
-                  tec: TextEditingController(),
+                  tec: controller.welcomeViewModel.value.tecPlayer2,
                   label: 'player one name',
                 ),
                 const SizedBox(
@@ -36,7 +36,7 @@ class WelcomeView extends StatelessWidget {
                     onPressed: () {
                       controller.goToGame();
                     },
-                    child: const Text('play'))
+                    child: const Text('go'))
               ],
             ),
           ),

@@ -7,16 +7,18 @@ class MyThemeData {
       primaryColor: lightSwatch.shade500,
       primaryColorDark: lightSwatch.shade900,
       primaryColorLight: lightSwatch.shade100,
-      elevatedButtonTheme: LightTheme.elevatedButtonThemeData);
+      elevatedButtonTheme: Light.elevatedButtonThemeData,
+      textTheme: Light.textTheme);
   static ThemeData darkTheme = ThemeData(
       primarySwatch: darkSwatch,
       primaryColor: darkSwatch.shade500,
       primaryColorDark: darkSwatch.shade900,
       primaryColorLight: darkSwatch.shade100,
-      elevatedButtonTheme: DarkTheme.elevatedButtonThemeData);
+      elevatedButtonTheme: Dark.elevatedButtonThemeData,
+      textTheme: Dark.textTheme);
 }
 
-class LightTheme {
+class Light {
   static ElevatedButtonThemeData elevatedButtonThemeData =
       ElevatedButtonThemeData(
           style: ButtonStyle(
@@ -24,9 +26,12 @@ class LightTheme {
         TextStyle(fontSize: 20, color: lightSwatch.shade50)),
     backgroundColor: MaterialStatePropertyAll(lightSwatch.shade900),
   ));
+
+  static TextTheme textTheme = TextTheme(
+      bodyMedium: TextStyle(color: lightSwatch.shade50, fontSize: 40));
 }
 
-class DarkTheme {
+class Dark {
   static ElevatedButtonThemeData elevatedButtonThemeData =
       ElevatedButtonThemeData(
           style: ButtonStyle(
@@ -34,4 +39,7 @@ class DarkTheme {
         TextStyle(fontSize: 20, color: darkSwatch.shade50)),
     backgroundColor: MaterialStatePropertyAll(darkSwatch.shade900),
   ));
+
+  static TextTheme textTheme =
+      TextTheme(bodyMedium: TextStyle(color: darkSwatch.shade50, fontSize: 40));
 }

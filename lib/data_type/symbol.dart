@@ -1,0 +1,1 @@
+enum PlayerSymbol { x, o }
