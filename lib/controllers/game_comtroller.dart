@@ -4,8 +4,26 @@ import 'package:tic_tac_toe/data_type/player.dart';
 import 'package:tic_tac_toe/views/game_view/components/dialog_game.dart';
 import 'package:tic_tac_toe/views/game_view/components/dialog_tie.dart';
 import 'package:tic_tac_toe/views/game_view/components/dialog_win.dart';
+import 'package:tic_tac_toe/views/welcome_view/welcome_view.dart';
 
 class GameController extends WinningCheckController {
+  void restart() {
+    //this doen't work.
+    // gameViewModel.update((val) {
+    //   val!.gameList.forEach((element) {
+    //     element = '';
+    //   });
+    // });
+
+    gameViewModel.update((val) {
+      for (var i = 0; i < 9; i++) {
+        val!.gameList[i] = '';
+      }
+    });
+
+    Get.back();
+  }
+
   void shuffleXO() {
     gameViewModel.update((val) {
       val!.player1chooseX = !(val.player1chooseX);
@@ -32,16 +50,21 @@ class GameController extends WinningCheckController {
 
     //check the winner
     if (checkWinner()) {
+      //if the current player wins, show the winning dialog and increase his score.
       await dialogWin();
+      gameViewModel.update((val) {
+        val!.currentPlayer!.score = val.currentPlayer!.score + 1;
+      });
     } else if (checkTie()) {
+      //if the grid is full and noone wins, show tie dialog.
       await dialogTie();
     } else {
-      //change the turn
+      //if no winner and no tie, change the game turn.
       _shuffleTurns();
     }
   }
 
-  okFunction() {
+  void okFunction() {
     gameViewModel.update((val) {
       // assign 'x' and 'o' to the apprpriate players, and create players objects
       String plyer1Symbol = val!.player1chooseX ? 'x' : 'o';
@@ -70,5 +93,13 @@ class GameController extends WinningCheckController {
       val!.plyerOneName = name1;
       val.plyerTwoName = name2;
     });
+  }
+
+  void goBackToWelcome() {
+    Get.offUntil(
+        GetPageRoute(
+          page: () => const WelcomeView(),
+        ),
+        (route) => false);
   }
 }

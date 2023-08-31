@@ -6,6 +6,7 @@ dialogWin() async {
   GameController controller = Get.put(GameController());
 
   await Get.defaultDialog(
+    barrierDismissible: false,
     content: Column(
       children: [
         Row(
@@ -21,13 +22,17 @@ dialogWin() async {
     ),
     actions: [
       TextButton(
-          onPressed: () {},
+          onPressed: () {
+            controller.restart();
+          },
           child: const Text('play again',
               style: TextStyle(
                 fontSize: 20,
               ))),
       TextButton(
-          onPressed: () {},
+          onPressed: () {
+            controller.goBackToWelcome();
+          },
           child: const Text('exit',
               style: TextStyle(
                 fontSize: 20,

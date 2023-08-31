@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/game_comtroller.dart';
 import 'package:tic_tac_toe/views/game_view/components/grid.dart';
 import 'package:tic_tac_toe/views/game_view/components/legend.dart';
+import 'package:tic_tac_toe/views/game_view/components/my_menu.dart';
 import 'package:tic_tac_toe/views/game_view/components/score_panel.dart';
 
 class PortraitGameView extends StatelessWidget {
@@ -18,6 +19,7 @@ class PortraitGameView extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
+              MyPopupMenu(),
               SizedBox(
                 height: 20,
               ),

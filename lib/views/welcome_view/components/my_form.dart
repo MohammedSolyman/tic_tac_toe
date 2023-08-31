@@ -13,7 +13,8 @@ class MyTextFormField extends StatelessWidget {
           fillColor: Theme.of(context).primaryColorLight,
           filled: true,
           labelText: label,
-          labelStyle: TextStyle(color: Theme.of(context).primaryColorDark),
+          // labelStyle: TextStyle(color: Theme.of(context).primaryColorDark),
+          labelStyle: Theme.of(context).textTheme.displaySmall,
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(10),
               borderSide: BorderSide(
