@@ -12,7 +12,8 @@ class MyThemeData {
       textTheme: Light.textTheme,
       iconTheme: IconThemeData(
         color: lightSwatch.shade300,
-      ));
+      ),
+      textButtonTheme: Light.textButtonTheme);
   static ThemeData darkTheme = ThemeData(
       primarySwatch: darkSwatch,
       primaryColor: darkSwatch.shade500,
@@ -22,10 +23,16 @@ class MyThemeData {
       textTheme: Dark.textTheme,
       iconTheme: IconThemeData(
         color: darkSwatch.shade300,
-      ));
+      ),
+      textButtonTheme: Dark.textButtonTheme);
 }
 
 class Light {
+  static TextButtonThemeData textButtonTheme = TextButtonThemeData(
+      style: ButtonStyle(
+          textStyle: MaterialStatePropertyAll(GoogleFonts.pressStart2p(
+              color: lightSwatch.shade50, fontSize: 12))));
+
   static ElevatedButtonThemeData elevatedButtonThemeData =
       ElevatedButtonThemeData(
           style: ButtonStyle(
@@ -36,14 +43,24 @@ class Light {
   ));
 
   static TextTheme textTheme = TextTheme(
-      bodyMedium:
-          GoogleFonts.pressStart2p(color: lightSwatch.shade50, fontSize: 40),
-      bodySmall:
-          GoogleFonts.pressStart2p(color: lightSwatch.shade50, fontSize: 15),
-      displaySmall: GoogleFonts.permanentMarker(fontSize: 20));
+    bodyMedium:
+        GoogleFonts.pressStart2p(color: lightSwatch.shade50, fontSize: 40),
+    bodySmall:
+        GoogleFonts.pressStart2p(color: lightSwatch.shade700, fontSize: 15),
+    bodyLarge:
+        GoogleFonts.permanentMarker(fontSize: 20, color: lightSwatch.shade700),
+    displaySmall: GoogleFonts.permanentMarker(fontSize: 20),
+    displayMedium:
+        GoogleFonts.pressStart2p(color: lightSwatch.shade50, fontSize: 15),
+  );
 }
 
 class Dark {
+  static TextButtonThemeData textButtonTheme = TextButtonThemeData(
+      style: ButtonStyle(
+          textStyle: MaterialStatePropertyAll(GoogleFonts.pressStart2p(
+              color: darkSwatch.shade50, fontSize: 12))));
+
   static ElevatedButtonThemeData elevatedButtonThemeData =
       ElevatedButtonThemeData(
           style: ButtonStyle(
@@ -54,9 +71,14 @@ class Dark {
   ));
 
   static TextTheme textTheme = TextTheme(
-      bodyMedium:
-          GoogleFonts.pressStart2p(color: darkSwatch.shade50, fontSize: 40),
-      bodySmall:
-          GoogleFonts.pressStart2p(color: darkSwatch.shade50, fontSize: 15),
-      displaySmall: GoogleFonts.permanentMarker(fontSize: 20));
+    bodyMedium:
+        GoogleFonts.pressStart2p(color: darkSwatch.shade50, fontSize: 40),
+    bodySmall:
+        GoogleFonts.pressStart2p(color: darkSwatch.shade700, fontSize: 15),
+    bodyLarge:
+        GoogleFonts.permanentMarker(fontSize: 20, color: darkSwatch.shade700),
+    displaySmall: GoogleFonts.permanentMarker(fontSize: 20),
+    displayMedium:
+        GoogleFonts.pressStart2p(color: darkSwatch.shade50, fontSize: 15),
+  );
 }

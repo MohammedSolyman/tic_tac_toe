@@ -58,8 +58,8 @@ class InfoButton extends StatelessWidget {
     GameController controller = Get.put(GameController());
 
     return ElevatedButton(
-        onPressed: () {
-          controller.showDialog();
+        onPressed: () async {
+          await controller.showGameDialog(context);
         },
         child: const Text('start a game'));
   }

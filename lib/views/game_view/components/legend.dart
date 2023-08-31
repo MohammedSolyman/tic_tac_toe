@@ -14,7 +14,7 @@ class Legend extends StatelessWidget {
       if (controller.gameViewModel.value.startPlay) {
         return Text(
             '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol}) is playing',
-            style: Theme.of(context).textTheme.bodySmall);
+            style: Theme.of(context).textTheme.displayMedium);
       } else {
         return Container();
       }

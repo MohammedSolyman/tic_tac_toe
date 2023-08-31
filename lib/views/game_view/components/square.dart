@@ -13,7 +13,7 @@ class Square extends StatelessWidget {
 
     return InkWell(
       onTap: () async {
-        await controller.squareFunction(index);
+        await controller.squareFunction(index, context);
       },
       child: Container(
         decoration: BoxDecoration(

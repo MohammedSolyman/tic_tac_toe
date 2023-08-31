@@ -11,7 +11,7 @@ class MyPopupMenu extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.end,
       children: [
         PopupMenuButton(
-          color: Theme.of(context).primaryColorDark,
+          color: Theme.of(context).primaryColorLight,
           itemBuilder: (context) {
             return [topListItem(context), themeitem(context)];
           },
@@ -22,16 +22,6 @@ class MyPopupMenu extends StatelessWidget {
   }
 }
 
-// PopupMenuButton MyPopupMenu(BuildContext context) {
-//   return PopupMenuButton(
-//     color: Theme.of(context).primaryColorDark,
-//     itemBuilder: (context) {
-//       return [topListItem(context), themeitem(context)];
-//     },
-//     child: const Icon(Icons.menu),
-//   );
-// }
-
 PopupMenuItem topListItem(BuildContext context) {
   return PopupMenuItem(
     child: Row(
@@ -40,7 +30,7 @@ PopupMenuItem topListItem(BuildContext context) {
         const Icon(Icons.account_box),
         Text(
           'top list',
-          style: Theme.of(context).textTheme.bodySmall,
+          style: Theme.of(context).textTheme.bodyLarge,
         )
       ],
     ),
@@ -64,7 +54,7 @@ PopupMenuItem themeitem(BuildContext context) {
         }),
         Text(
           'theme',
-          style: Theme.of(context).textTheme.bodySmall,
+          style: Theme.of(context).textTheme.bodyLarge,
         )
       ],
     ),

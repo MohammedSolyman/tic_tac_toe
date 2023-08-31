@@ -1,3 +1,4 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/winning_check_controller.dart';
 import 'package:tic_tac_toe/data_type/player.dart';
@@ -40,7 +41,7 @@ class GameController extends WinningCheckController {
     });
   }
 
-  Future<void> squareFunction(int index) async {
+  Future<void> squareFunction(int index, BuildContext context) async {
     //put the symbol of the current player in the sqaure. only if this square is empty
     gameViewModel.update((val) {
       if (val!.gameList[index] == '') {
@@ -51,13 +52,13 @@ class GameController extends WinningCheckController {
     //check the winner
     if (checkWinner()) {
       //if the current player wins, show the winning dialog and increase his score.
-      await dialogWin();
+      await dialogWin(context);
       gameViewModel.update((val) {
         val!.currentPlayer!.score = val.currentPlayer!.score + 1;
       });
     } else if (checkTie()) {
       //if the grid is full and noone wins, show tie dialog.
-      await dialogTie();
+      await dialogTie(context);
     } else {
       //if no winner and no tie, change the game turn.
       _shuffleTurns();
@@ -84,8 +85,8 @@ class GameController extends WinningCheckController {
     Get.back();
   }
 
-  Future<void> showDialog() async {
-    await dialogGame();
+  Future<void> showGameDialog(BuildContext context) async {
+    await dialogGame(context);
   }
 
   void getNames(String name1, String name2) {

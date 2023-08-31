@@ -2,31 +2,35 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/game_comtroller.dart';
 
-dialogGame() async {
+dialogGame(BuildContext context) async {
   GameController controller = Get.put(GameController());
 
   await Get.defaultDialog(
+    backgroundColor: Theme.of(context).primaryColorLight,
+    title: '',
     content: Column(
       children: [
         Row(
           children: [
-            const Text('playerone chooses: ',
-                style: TextStyle(fontSize: 20, color: Colors.black)),
+            Text('player 1 chooses ',
+                style: Theme.of(context).textTheme.bodySmall),
             Obx(() {
               return Text(
-                  controller.gameViewModel.value.player1chooseX ? 'x' : 'o',
-                  style: const TextStyle(fontSize: 20, color: Colors.black));
+                controller.gameViewModel.value.player1chooseX ? 'x' : 'o',
+                //  style: Theme.of(context).textTheme.bodySmall
+              );
             }),
           ],
         ),
         Row(
           children: [
-            const Text('playertwo chooses: ',
-                style: TextStyle(fontSize: 20, color: Colors.black)),
+            Text('player 2 chooses ',
+                style: Theme.of(context).textTheme.bodySmall),
             Obx(() {
               return Text(
-                  controller.gameViewModel.value.player1chooseX ? 'o' : 'x',
-                  style: const TextStyle(fontSize: 20, color: Colors.black));
+                controller.gameViewModel.value.player1chooseX ? 'o' : 'x',
+                //    style: Theme.of(context).textTheme.bodySmall
+              );
             }),
           ],
         ),
@@ -37,18 +41,16 @@ dialogGame() async {
           onPressed: () {
             controller.shuffleXO();
           },
-          child: const Text('shuffleXO',
-              style: TextStyle(
-                fontSize: 20,
-              ))),
+          child: const Text(
+            'shuffleXO',
+          )),
       TextButton(
           onPressed: () {
             controller.okFunction();
           },
-          child: const Text('ok',
-              style: TextStyle(
-                fontSize: 20,
-              ))),
+          child: const Text(
+            'ok',
+          )),
     ],
   );
 }

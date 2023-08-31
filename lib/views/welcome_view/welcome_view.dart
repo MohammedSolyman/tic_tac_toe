@@ -20,14 +20,14 @@ class WelcomeView extends StatelessWidget {
               children: [
                 MyTextFormField(
                   tec: controller.welcomeViewModel.value.tecPlayer1,
-                  label: 'player one name',
+                  label: 'player 1 name',
                 ),
                 const SizedBox(
                   height: 20,
                 ),
                 MyTextFormField(
                   tec: controller.welcomeViewModel.value.tecPlayer2,
-                  label: 'player one name',
+                  label: 'player 2 name',
                 ),
                 const SizedBox(
                   height: 20,

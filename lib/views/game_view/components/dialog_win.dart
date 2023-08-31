@@ -2,19 +2,26 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/game_comtroller.dart';
 
-dialogWin() async {
+dialogWin(BuildContext context) async {
   GameController controller = Get.put(GameController());
 
   await Get.defaultDialog(
+    backgroundColor: Theme.of(context).primaryColorLight,
+    title: '',
     barrierDismissible: false,
     content: Column(
       children: [
         Row(
           children: [
             Obx(() {
-              return Text(
-                  '${controller.gameViewModel.value.currentPlayer!.name} (${controller.gameViewModel.value.currentPlayer!.symbol}) wins',
-                  style: const TextStyle(fontSize: 20, color: Colors.black));
+              String statement = controller
+                          .gameViewModel.value.currentPlayer!.name ==
+                      ''
+                  ? 'player ${controller.gameViewModel.value.currentPlayer!.symbol} wins'
+                  : '${controller.gameViewModel.value.currentPlayer!.name} wins';
+
+              return Text(statement,
+                  style: Theme.of(context).textTheme.bodySmall);
             }),
           ],
         ),
@@ -25,18 +32,16 @@ dialogWin() async {
           onPressed: () {
             controller.restart();
           },
-          child: const Text('play again',
-              style: TextStyle(
-                fontSize: 20,
-              ))),
+          child: const Text(
+            'play again',
+          )),
       TextButton(
           onPressed: () {
             controller.goBackToWelcome();
           },
-          child: const Text('exit',
-              style: TextStyle(
-                fontSize: 20,
-              ))),
+          child: const Text(
+            'exit',
+          )),
     ],
   );
 }

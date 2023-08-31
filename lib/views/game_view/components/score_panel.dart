@@ -20,9 +20,9 @@ class ScorePanel extends StatelessWidget {
                     controller.gameViewModel.value.plyerOne!.name == ''
                         ? 'player 1'
                         : controller.gameViewModel.value.plyerOne!.name,
-                    style: Theme.of(context).textTheme.bodySmall),
+                    style: Theme.of(context).textTheme.displayMedium),
                 Text(controller.gameViewModel.value.plyerOne!.score.toString(),
-                    style: Theme.of(context).textTheme.bodySmall)
+                    style: Theme.of(context).textTheme.displayMedium)
               ],
             ),
             Column(
@@ -31,9 +31,9 @@ class ScorePanel extends StatelessWidget {
                     controller.gameViewModel.value.plyerTwo!.name == ''
                         ? 'player 2'
                         : controller.gameViewModel.value.plyerTwo!.name,
-                    style: Theme.of(context).textTheme.bodySmall),
+                    style: Theme.of(context).textTheme.displayMedium),
                 Text(controller.gameViewModel.value.plyerTwo!.score.toString(),
-                    style: Theme.of(context).textTheme.bodySmall)
+                    style: Theme.of(context).textTheme.displayMedium)
               ],
             ),
           ],
