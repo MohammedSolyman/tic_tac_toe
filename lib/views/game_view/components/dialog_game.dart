@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/game_comtroller.dart';
 
-showGameDialog() async {
+dialogGame() async {
   GameController controller = Get.put(GameController());
 
   await Get.defaultDialog(

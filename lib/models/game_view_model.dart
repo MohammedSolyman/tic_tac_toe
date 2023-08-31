@@ -3,7 +3,6 @@ import 'package:tic_tac_toe/data_type/player.dart';
 class GameViewModel {
   String? plyerOneName;
   String? plyerTwoName;
-
   Player? plyerOne;
   Player? plyerTwo;
   Player? currentPlayer;

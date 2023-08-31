@@ -13,7 +13,8 @@ class Legend extends StatelessWidget {
     return Obx(() {
       if (controller.gameViewModel.value.startPlay) {
         return Text(
-            '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol} is playing)');
+            '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol}) is playing',
+            style: Theme.of(context).textTheme.bodySmall);
       } else {
         return Container();
       }

@@ -8,6 +8,7 @@ class MyTextFormField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      controller: tec,
       decoration: InputDecoration(
           fillColor: Theme.of(context).primaryColorLight,
           filled: true,

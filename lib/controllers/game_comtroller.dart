@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
+import 'package:tic_tac_toe/controllers/winning_check_controller.dart';
 import 'package:tic_tac_toe/data_type/player.dart';
-import 'package:tic_tac_toe/models/game_view_model.dart';
-import 'package:tic_tac_toe/views/game_view/components/game_dialog.dart';
+import 'package:tic_tac_toe/views/game_view/components/dialog_game.dart';
+import 'package:tic_tac_toe/views/game_view/components/dialog_tie.dart';
+import 'package:tic_tac_toe/views/game_view/components/dialog_win.dart';
 
-class GameController extends GetxController {
-  Rx<GameViewModel> gameViewModel = GameViewModel().obs;
-
+class GameController extends WinningCheckController {
   void shuffleXO() {
     gameViewModel.update((val) {
       val!.player1chooseX = !(val.player1chooseX);
@@ -22,18 +22,23 @@ class GameController extends GetxController {
     });
   }
 
-  void squareFunction(int index) {
+  Future<void> squareFunction(int index) async {
     //put the symbol of the current player in the sqaure. only if this square is empty
     gameViewModel.update((val) {
       if (val!.gameList[index] == '') {
         val.gameList[index] = val.currentPlayer!.symbol;
-
-        //change the turn
-        _shuffleTurns();
-
-        //check th winner
       }
     });
+
+    //check the winner
+    if (checkWinner()) {
+      await dialogWin();
+    } else if (checkTie()) {
+      await dialogTie();
+    } else {
+      //change the turn
+      _shuffleTurns();
+    }
   }
 
   okFunction() {
@@ -57,7 +62,7 @@ class GameController extends GetxController {
   }
 
   Future<void> showDialog() async {
-    await showGameDialog();
+    await dialogGame();
   }
 
   void getNames(String name1, String name2) {

@@ -28,7 +28,9 @@ class Light {
   ));
 
   static TextTheme textTheme = TextTheme(
-      bodyMedium: TextStyle(color: lightSwatch.shade50, fontSize: 40));
+    bodyMedium: TextStyle(color: lightSwatch.shade50, fontSize: 40),
+    bodySmall: TextStyle(color: lightSwatch.shade50, fontSize: 20),
+  );
 }
 
 class Dark {
@@ -40,6 +42,8 @@ class Dark {
     backgroundColor: MaterialStatePropertyAll(darkSwatch.shade900),
   ));
 
-  static TextTheme textTheme =
-      TextTheme(bodyMedium: TextStyle(color: darkSwatch.shade50, fontSize: 40));
+  static TextTheme textTheme = TextTheme(
+    bodyMedium: TextStyle(color: darkSwatch.shade50, fontSize: 40),
+    bodySmall: TextStyle(color: darkSwatch.shade50, fontSize: 20),
+  );
 }

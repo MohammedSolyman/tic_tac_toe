@@ -13,16 +13,19 @@ class PortraitGameView extends StatelessWidget {
     return Scaffold(
       backgroundColor: Theme.of(context).primaryColor,
       body: const Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            SizedBox(
-              height: 20,
-            ),
-            ScorePanel(),
-            GridOrBUtton(),
-            Legend()
-          ],
+        child: Padding(
+          padding: EdgeInsets.all(15.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              SizedBox(
+                height: 20,
+              ),
+              ScorePanel(),
+              GridOrBUtton(),
+              Legend()
+            ],
+          ),
         ),
       ),
     );

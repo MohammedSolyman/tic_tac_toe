@@ -12,11 +12,12 @@ class Square extends StatelessWidget {
     // String s;
 
     return InkWell(
-      onTap: () {
-        controller.squareFunction(index);
+      onTap: () async {
+        await controller.squareFunction(index);
       },
       child: Container(
         decoration: BoxDecoration(
+            color: Theme.of(context).primaryColorDark,
             border: Border.all(
                 color: Theme.of(context).primaryColorLight, width: 3)),
         child: Center(child: Obx(() {

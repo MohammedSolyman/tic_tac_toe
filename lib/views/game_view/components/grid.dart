@@ -6,17 +6,24 @@ class Grid extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GridView.builder(
-          shrinkWrap: true,
-          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-              crossAxisCount: 3),
-          itemCount: 9,
-          itemBuilder: (BuildContext context, int index) {
-            return Square(
-              index: index,
-            );
-          }),
+    return Container(
+      decoration: BoxDecoration(
+        color: Theme.of(context).primaryColorLight,
+      ),
+      child: Padding(
+        padding: const EdgeInsets.all(2.0),
+        child: GridView.builder(
+            shrinkWrap: true,
+            padding: EdgeInsets.zero,
+            gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 3),
+            itemCount: 9,
+            itemBuilder: (BuildContext context, int index) {
+              return Square(
+                index: index,
+              );
+            }),
+      ),
     );
   }
 }
