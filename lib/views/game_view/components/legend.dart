@@ -12,9 +12,16 @@ class Legend extends StatelessWidget {
 
     return Obx(() {
       if (controller.gameViewModel.value.startPlay) {
-        return Text(
-            '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol}) is playing',
-            style: Theme.of(context).textTheme.displayMedium);
+        return TweenAnimationBuilder<double>(
+          tween: Tween<double>(begin: 0, end: 1),
+          duration: const Duration(seconds: 3),
+          builder: (context, op, widget) {
+            return Opacity(opacity: op, child: widget);
+          },
+          child: Text(
+              '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol}) is playing',
+              style: Theme.of(context).textTheme.displayMedium),
+        );
       } else {
         return Container();
       }

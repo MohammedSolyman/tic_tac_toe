@@ -11,32 +11,47 @@ class ScorePanel extends StatelessWidget {
 
     return Obx(() {
       if (controller.gameViewModel.value.startPlay) {
-        return Row(
-          mainAxisAlignment: MainAxisAlignment.spaceAround,
-          children: [
-            Column(
-              children: [
-                Text(
-                    controller.gameViewModel.value.plyerOne!.name == ''
-                        ? 'player 1'
-                        : controller.gameViewModel.value.plyerOne!.name,
-                    style: Theme.of(context).textTheme.displayMedium),
-                Text(controller.gameViewModel.value.plyerOne!.score.toString(),
-                    style: Theme.of(context).textTheme.displayMedium)
-              ],
-            ),
-            Column(
-              children: [
-                Text(
-                    controller.gameViewModel.value.plyerTwo!.name == ''
-                        ? 'player 2'
-                        : controller.gameViewModel.value.plyerTwo!.name,
-                    style: Theme.of(context).textTheme.displayMedium),
-                Text(controller.gameViewModel.value.plyerTwo!.score.toString(),
-                    style: Theme.of(context).textTheme.displayMedium)
-              ],
-            ),
-          ],
+        return TweenAnimationBuilder<double>(
+          tween: Tween<double>(begin: 0, end: 1),
+          duration: const Duration(seconds: 3),
+          builder: (context, op, widget) {
+            return Opacity(opacity: op, child: widget);
+          },
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceAround,
+            children: [
+              Column(
+                children: [
+                  Text(
+                      controller.gameViewModel.value.plyerOne!.name == ''
+                          ? 'player 1'
+                          : controller.gameViewModel.value.plyerOne!.name,
+                      style: Theme.of(context).textTheme.displayMedium),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                      controller.gameViewModel.value.plyerOne!.score.toString(),
+                      style: Theme.of(context).textTheme.displayMedium)
+                ],
+              ),
+              Column(
+                children: [
+                  Text(
+                      controller.gameViewModel.value.plyerTwo!.name == ''
+                          ? 'player 2'
+                          : controller.gameViewModel.value.plyerTwo!.name,
+                      style: Theme.of(context).textTheme.displayMedium),
+                  const SizedBox(
+                    height: 5,
+                  ),
+                  Text(
+                      controller.gameViewModel.value.plyerTwo!.score.toString(),
+                      style: Theme.of(context).textTheme.displayMedium)
+                ],
+              ),
+            ],
+          ),
         );
       } else {
         return Container();

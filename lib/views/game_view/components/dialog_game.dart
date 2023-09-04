@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/game_comtroller.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 dialogGame(BuildContext context) async {
   GameController controller = Get.put(GameController());
@@ -15,10 +16,11 @@ dialogGame(BuildContext context) async {
             Text('player 1 chooses ',
                 style: Theme.of(context).textTheme.bodySmall),
             Obx(() {
-              return Text(
-                controller.gameViewModel.value.player1chooseX ? 'x' : 'o',
-                //  style: Theme.of(context).textTheme.bodySmall
-              );
+              String symbol =
+                  controller.gameViewModel.value.player1chooseX ? 'x' : 'o';
+              return Text(symbol,
+                  style: GoogleFonts.pressStart2p(
+                      color: symbol == 'x' ? Colors.green : Colors.red));
             }),
           ],
         ),
@@ -27,10 +29,11 @@ dialogGame(BuildContext context) async {
             Text('player 2 chooses ',
                 style: Theme.of(context).textTheme.bodySmall),
             Obx(() {
-              return Text(
-                controller.gameViewModel.value.player1chooseX ? 'o' : 'x',
-                //    style: Theme.of(context).textTheme.bodySmall
-              );
+              String symbol =
+                  controller.gameViewModel.value.player1chooseX ? 'o' : 'x';
+              return Text(symbol,
+                  style: GoogleFonts.pressStart2p(
+                      color: symbol == 'x' ? Colors.green : Colors.red));
             }),
           ],
         ),
@@ -42,7 +45,7 @@ dialogGame(BuildContext context) async {
             controller.shuffleXO();
           },
           child: const Text(
-            'shuffleXO',
+            'shuffle',
           )),
       TextButton(
           onPressed: () {

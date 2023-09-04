@@ -21,8 +21,12 @@ class Square extends StatelessWidget {
             border: Border.all(
                 color: Theme.of(context).primaryColorLight, width: 3)),
         child: Center(child: Obx(() {
-          return Text(controller.gameViewModel.value.gameList[index],
-              style: Theme.of(context).textTheme.bodyMedium);
+          String symbol = controller.gameViewModel.value.gameList[index];
+          return Text(symbol,
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyMedium!
+                  .copyWith(color: symbol == 'x' ? Colors.green : Colors.red));
         })),
       ),
     );

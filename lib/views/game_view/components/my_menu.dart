@@ -13,7 +13,10 @@ class MyPopupMenu extends StatelessWidget {
         PopupMenuButton(
           color: Theme.of(context).primaryColorLight,
           itemBuilder: (context) {
-            return [topListItem(context), themeitem(context)];
+            return [
+              //topListItem(context),
+              themeitem(context)
+            ];
           },
           child: const Icon(Icons.menu),
         )
