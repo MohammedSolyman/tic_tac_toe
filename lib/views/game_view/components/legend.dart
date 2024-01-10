@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -18,8 +19,9 @@ class Legend extends StatelessWidget {
           builder: (context, op, widget) {
             return Opacity(opacity: op, child: widget);
           },
-          child: Text(
+          child: AutoSizeText(
               '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol}) is playing',
+              maxLines: 1,
               style: Theme.of(context).textTheme.displayMedium),
         );
       } else {
