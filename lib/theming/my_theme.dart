@@ -14,6 +14,7 @@ class MyThemeData {
         color: lightSwatch.shade300,
       ),
       textButtonTheme: Light.textButtonTheme);
+
   static ThemeData darkTheme = ThemeData(
       primarySwatch: darkSwatch,
       primaryColor: darkSwatch.shade500,

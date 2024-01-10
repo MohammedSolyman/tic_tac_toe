@@ -5,10 +5,12 @@ class MyTextFormField extends StatelessWidget {
 
   final TextEditingController tec;
   final String label;
+
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       controller: tec,
+      style: Theme.of(context).textTheme.bodySmall,
       decoration: InputDecoration(
           fillColor: Theme.of(context).primaryColorLight,
           filled: true,

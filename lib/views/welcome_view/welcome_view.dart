@@ -10,34 +10,36 @@ class WelcomeView extends StatelessWidget {
   Widget build(BuildContext context) {
     WelcomeController controller = Get.find<WelcomeController>();
 
-    return Scaffold(
-      backgroundColor: Theme.of(context).primaryColor,
-      body: Center(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Column(
-              children: [
-                MyTextFormField(
-                  tec: controller.welcomeViewModel.value.tecPlayer1,
-                  label: 'player 1 name',
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                MyTextFormField(
-                  tec: controller.welcomeViewModel.value.tecPlayer2,
-                  label: 'player 2 name',
-                ),
-                const SizedBox(
-                  height: 20,
-                ),
-                ElevatedButton(
-                    onPressed: () {
-                      controller.goToGame();
-                    },
-                    child: const Text('go'))
-              ],
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: Theme.of(context).primaryColor,
+        body: Center(
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  MyTextFormField(
+                    tec: controller.welcomeViewModel.value.tecPlayer1,
+                    label: 'player 1 name',
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  MyTextFormField(
+                    tec: controller.welcomeViewModel.value.tecPlayer2,
+                    label: 'player 2 name',
+                  ),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        controller.goToGame();
+                      },
+                      child: const Text('go'))
+                ],
+              ),
             ),
           ),
         ),

@@ -6,7 +6,7 @@ import 'package:tic_tac_toe/views/welcome_view/welcome_view.dart';
 import 'package:get/get.dart';
 
 /*
-https://github.com/MohammedSolyman/tic_tac_toe.git
+git push https://github.com/MohammedSolyman/tic_tac_toe.git master
 */
 
 void main() {
