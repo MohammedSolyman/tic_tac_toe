@@ -22,6 +22,7 @@ class Legend extends StatelessWidget {
           child: AutoSizeText(
               '${controller.gameViewModel.value.currentPlayer!.name}(${controller.gameViewModel.value.currentPlayer!.symbol}) is playing',
               maxLines: 1,
+              minFontSize: 1,
               style: Theme.of(context).textTheme.displayMedium),
         );
       } else {

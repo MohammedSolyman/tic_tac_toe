@@ -1,3 +1,4 @@
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:tic_tac_toe/controllers/game_comtroller.dart';
@@ -20,35 +21,44 @@ class ScorePanel extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
-              Column(
-                children: [
-                  Text(
-                      controller.gameViewModel.value.plyerOne!.name == ''
-                          ? 'player 1'
-                          : controller.gameViewModel.value.plyerOne!.name,
-                      style: Theme.of(context).textTheme.displayMedium),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                      controller.gameViewModel.value.plyerOne!.score.toString(),
-                      style: Theme.of(context).textTheme.displayMedium)
-                ],
+              Expanded(
+                child: Column(
+                  children: [
+                    AutoSizeText(
+                        controller.gameViewModel.value.plyerOne!.name == ''
+                            ? 'player 1'
+                            : controller.gameViewModel.value.plyerOne!.name,
+                        maxLines: 1,
+                        style: Theme.of(context).textTheme.displayMedium),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    AutoSizeText(
+                        controller.gameViewModel.value.plyerOne!.score
+                            .toString(),
+                        style: Theme.of(context).textTheme.displayMedium)
+                  ],
+                ),
               ),
-              Column(
-                children: [
-                  Text(
-                      controller.gameViewModel.value.plyerTwo!.name == ''
-                          ? 'player 2'
-                          : controller.gameViewModel.value.plyerTwo!.name,
-                      style: Theme.of(context).textTheme.displayMedium),
-                  const SizedBox(
-                    height: 5,
-                  ),
-                  Text(
-                      controller.gameViewModel.value.plyerTwo!.score.toString(),
-                      style: Theme.of(context).textTheme.displayMedium)
-                ],
+              const SizedBox(width: 15),
+              Expanded(
+                child: Column(
+                  children: [
+                    AutoSizeText(
+                        controller.gameViewModel.value.plyerTwo!.name == ''
+                            ? 'player 2'
+                            : controller.gameViewModel.value.plyerTwo!.name,
+                        maxLines: 1,
+                        style: Theme.of(context).textTheme.displayMedium),
+                    const SizedBox(
+                      height: 5,
+                    ),
+                    AutoSizeText(
+                        controller.gameViewModel.value.plyerTwo!.score
+                            .toString(),
+                        style: Theme.of(context).textTheme.displayMedium)
+                  ],
+                ),
               ),
             ],
           ),
